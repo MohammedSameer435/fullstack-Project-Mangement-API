@@ -13,10 +13,10 @@ export default function Register() {
     e.preventDefault();
     try {
       const res = await API.post("/users/register", form);
-      setMessage("✅ Registered successfully! Please log in.");
+      setMessage(" Registered successfully! Please log in.");
     } catch (err) {
       console.error("Error:", err.response ? err.response.data : err.message);
-      setMessage(`❌ ${err.response?.data?.message || "Something went wrong"}`);
+      setMessage(` ${err.response?.data?.message || "Something went wrong"}`);
     }
   };
 

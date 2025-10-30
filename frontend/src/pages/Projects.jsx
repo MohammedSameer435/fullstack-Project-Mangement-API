@@ -26,7 +26,7 @@ export default function Projects() {
       setProjects(res.data.data || []);
     } catch (err) {
       console.error("Error fetching projects:", err);
-      setMessage("❌ Failed to fetch projects");
+      setMessage(" Failed to fetch projects");
     }
   };
 
@@ -41,10 +41,10 @@ export default function Projects() {
       setProjects([...projects, res.data.data]);
       setNewProjectName("");
       setNewProjectDescription("");
-      setMessage("✅ Project created successfully!");
+      setMessage(" Project created successfully!");
     } catch (err) {
       console.error("Error creating project:", err);
-      setMessage("❌ Failed to create project");
+      setMessage(" Failed to create project");
     }
   };
 
@@ -58,10 +58,10 @@ export default function Projects() {
         prev.map((p) => (p._id === projectId ? res.data.data : p))
       );
       setEditingProjectId(null);
-      setMessage("✏️ Project updated successfully!");
+      setMessage(" Project updated successfully!");
     } catch (err) {
       console.error("Error updating project:", err);
-      setMessage("❌ Failed to update project");
+      setMessage(" Failed to update project");
     }
   };
 
@@ -70,10 +70,10 @@ export default function Projects() {
     try {
       await API.delete(`/projects/${projectId}`);
       setProjects((prev) => prev.filter((p) => p._id !== projectId));
-      setMessage("🗑️ Project deleted successfully!");
+      setMessage(" Project deleted successfully!");
     } catch (err) {
       console.error("Error deleting project:", err);
-      setMessage("❌ Failed to delete project");
+      setMessage(" Failed to delete project");
     }
   };
 
@@ -85,12 +85,12 @@ export default function Projects() {
       setProjects((prev) =>
         prev.map((p) => (p._id === projectId ? updatedProject : p))
       );
-      setMessage("✅ Member added successfully!");
+      setMessage(" Member added successfully!");
       setEmail("");
       setRole("Member");
     } catch (err) {
       console.error("Error adding member:", err.response || err);
-      setMessage(`❌ ${err.response?.data?.message || "Failed to add member"}`);
+      setMessage(` ${err.response?.data?.message || "Failed to add member"}`);
     }
   };
 
@@ -101,10 +101,10 @@ export default function Projects() {
       setProjects((prev) =>
         prev.map((p) => (p._id === projectId ? updatedProject : p))
       );
-      setMessage("🗑️ Member removed successfully!");
+      setMessage(" Member removed successfully!");
     } catch (err) {
       console.error("Error removing member:", err);
-      setMessage("❌ Failed to remove member");
+      setMessage(" Failed to remove member");
     }
   };
 
@@ -137,7 +137,7 @@ export default function Projects() {
       setNoteInputs((prev) => ({ ...prev, [projectId]: "" }));
     } catch (err) {
       console.error("Error adding note:", err);
-      setMessage("❌ Failed to add note");
+      setMessage(" Failed to add note");
     }
   };
 
@@ -150,7 +150,7 @@ export default function Projects() {
       }));
     } catch (err) {
       console.error("Error deleting note:", err);
-      setMessage("❌ Failed to delete note");
+      setMessage(" Failed to delete note");
     }
   };
 
@@ -165,7 +165,7 @@ export default function Projects() {
       <h2 className="text-3xl font-bold mb-6 text-gray-800">My Projects</h2>
       {message && <p className="mb-4 text-blue-600">{message}</p>}
 
-      {/* ➕ Add New Project */}
+      {/*  Add New Project */}
       <form
         onSubmit={handleAddProject}
         className="flex flex-col md:flex-row gap-3 mb-8"
@@ -191,7 +191,7 @@ export default function Projects() {
         </button>
       </form>
 
-      {/* 📋 Project List */}
+      {/*  Project List */}
       <div className="space-y-6">
         {projects.length === 0 ? (
           <p className="text-gray-600">No projects found.</p>

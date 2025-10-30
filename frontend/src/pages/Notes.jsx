@@ -33,10 +33,10 @@ const Notes = () => {
       setNotes((prev) => [...prev, res.data.data]);
       setTitle("");
       setContent("");
-      setMessage("✅ Note added successfully!");
+      setMessage(" Note added successfully!");
     } catch (err) {
       console.error("Create note error:", err.response || err);
-      setMessage("❌ " + (err.response?.data?.message || "Failed to add note"));
+      setMessage( (err.response?.data?.message || "Failed to add note"));
     }
   };
 
@@ -45,7 +45,7 @@ const Notes = () => {
     try {
       await API.delete(`/notes/${projectId}/n/${noteId}`);
       setNotes((prev) => prev.filter((n) => n._id !== noteId));
-      setMessage("🗑️ Note deleted");
+      setMessage(" Note deleted");
     } catch (err) {
       console.error("Delete note error:", err);
       setMessage("❌ Failed to delete note");
@@ -54,7 +54,7 @@ const Notes = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-gray-50 rounded-xl shadow-md mt-10">
-      <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">📝 Notes for Project</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center text-gray-800"> Notes for Project</h2>
 
       <form
         onSubmit={handleCreateNote}
@@ -77,7 +77,7 @@ const Notes = () => {
           type="submit"
           className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg transition duration-200"
         >
-          ➕ Add Note
+          //Add Note
         </button>
       </form>
 

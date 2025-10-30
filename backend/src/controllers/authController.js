@@ -270,10 +270,13 @@ const forgotPasswordRequest = asyncHandler(async (req, res) => {
 });
 
 const resetPassword = asyncHandler(async (req, res) => {
-  const { resetToken } = req.params
-  const { newPassword } = req.body
+  const { token } = req.params
+  const { newPassword,confirmPassword } = req.body
+  if (newPassword !== confirmPassword) {
+    throw new ApiError(400, "Passwords do not match");
+  }
 
-  const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex");
+  const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
 
   const user = await User.findOne({
     forgotPasswordToken: hashedToken,

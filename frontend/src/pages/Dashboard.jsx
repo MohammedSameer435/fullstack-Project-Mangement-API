@@ -14,7 +14,7 @@ export default function Dashboard() {
         const token = localStorage.getItem("token");
 
         if (!token) {
-          setMessage("❌ Please log in first.");
+          setMessage("Please log in first.");
           navigate("/login");
           return;
         }

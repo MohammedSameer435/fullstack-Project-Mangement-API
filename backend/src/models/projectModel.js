@@ -9,10 +9,9 @@ const memberSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ["Admin", "Member","user"], // you can add more roles if needed
-        default: "Member"
+        enum: ["Admin", "Member","user"], 
     },
-}, { _id: false }) // no separate _id for each member object
+}, { _id: false }) 
 
 const projectSchema = new Schema({
     name: {

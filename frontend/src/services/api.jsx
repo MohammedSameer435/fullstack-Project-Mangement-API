@@ -13,5 +13,9 @@ API.interceptors.request.use((req) => {
   }
   return req;
 });
+export const requestPasswordReset = (email) => {
+  return API.post("/users/forgot-password", { email });
+};
+
 
 export default API;

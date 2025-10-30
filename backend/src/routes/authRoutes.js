@@ -32,7 +32,7 @@ router.route("/verify-email/:verificationToken").get(verifyEmail)
 router.route("/resendEmailVerificationCode").post(verifyJWT, resendEmailVerification)
 router.route("/refresh-token").post(refreshAccessToken);
 router.route("/forgot-password").post(forgotPasswordValidator(), validate, forgotPasswordRequest)
-router.route("/reset-password/:resetToken").post(validate, resetPassword)
+router.route("/reset-password/:token").post(validate, resetPassword)
 
 // secured routes
 router.route("/logout").post(verifyJWT, logoutUser)
